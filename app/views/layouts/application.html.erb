@@ -9,9 +9,10 @@
   <body>
 
   <% if current_user %>
-      Welcome, <%= current_user.name %>
+    Welcome, <%= current_user.name %>
+   <%= button_to "Logout", logout_path, method: :delete %>
   <% else %>
-
+    <%= button_to "Register", new_user_path, method: :get %>
   <% end %>
 
   <%= yield %>

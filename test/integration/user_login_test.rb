@@ -14,7 +14,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     click_button "Login"
 
     assert page.has_content?("Welcome, joe"), 'cannot login'
-
+    refute page.has_button?("Register")
   end
 
 end
