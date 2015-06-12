@@ -2,9 +2,9 @@ require 'test_helper'
 
 class UserCreationTest < ActionDispatch::IntegrationTest
   
-
   test "a user can be created" do
-    visit new_user_path
+    visit root_path
+    click_button "Register"
 
     fill_in "Name", with: "user"
     fill_in "Password", with: "pass"
