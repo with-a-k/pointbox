@@ -4,4 +4,22 @@ class UsersController < ApplicationController
     @user = User.new 
   end
 
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      # session info needed here 
+    redirect_to root
+    else
+      # failure
+    end
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit([:name, :password])
+  end
+
 end
