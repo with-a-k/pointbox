@@ -9,13 +9,16 @@ class UsersController < ApplicationController
 
     if @user.save
       # session info needed here 
-    redirect_to root
+      redirect_to @user 
     else
       # failure
     end
   end
 
-
+  def show
+    @user = User.find(params[:id])    
+  end
+ 
   private
 
   def user_params
