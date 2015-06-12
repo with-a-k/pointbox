@@ -8,7 +8,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     
     visit login_path
 
-    fill_in "Name", with: 'joe'
+    fill_in "Name", with: user.name 
     fill_in "Password", with: 'smo'
     
     click_button "Login"
