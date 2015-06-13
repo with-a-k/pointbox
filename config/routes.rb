@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'   
   delete '/logout', to: 'sessions#destroy'
 
+
+  namespace :admin do
+    resources :dashboard, only: [:index]    
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
