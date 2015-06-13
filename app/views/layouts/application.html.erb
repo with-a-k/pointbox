@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Pointbox</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Pointbox</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
+  <% if current_user %>
+    Welcome, <%= current_user.name %>
+   <%= button_to "Logout", logout_path, method: :delete %>
+  <% else %>
+    <%= button_to "Register", new_user_path, method: :get %>
+  <% end %>
 
- Welcome, <%= @user.name  %>
+  <%= yield %>
 
-<%= yield %>
-
-</body>
+  </body>
 </html>
