@@ -1,6 +1,6 @@
 class Admin::BaseController < ApplicationController
 
-  private
+#  private
   before_action :require_admin
 
   def require_admin
